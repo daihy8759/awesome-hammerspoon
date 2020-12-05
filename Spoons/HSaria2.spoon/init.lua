@@ -182,7 +182,9 @@ function obj:createAndRefreshPanel()
                                         end
                                     else
                                         if k.status == "complete" then
-                                            hs.execute("open -g " .. k.files[1].path)
+                                            if id == "filepath" then
+                                                hs.execute("open -g " .. k.files[1].path)
+                                            end
                                         elseif k.status == "active" then
                                             obj:sendCommand("pause", k.gid)
                                         elseif k.status == "paused" then
